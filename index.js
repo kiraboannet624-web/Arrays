@@ -57,9 +57,34 @@ console.log("Spread Copy:", spreadCopy);
 const studentNames= ["Alice", "Bob", "Charlie", "Alice", "David"];
 
 //a 
+//the indexof, lastindex = if the first condition is successful it print out true then the condition stops
 console.log(studentNames.indexOf("Alice"));
 //b
 console.log(studentNames.lastIndexOf("Alice"));
+
+
+//c
+console.log(studentNames.includes("Charlie"));
+//d
+console.log(studentNames.includes("Eve"));
+
+
+//EXERCISE 5:Advanced searching with find and findIndex
+
+const products =[
+   
+     {id:1,Name:"laptop",price:1200},
+       {id:2,Name:"smartphone",price:25},
+        {id:3,Name:"Tablet",price:75},
+         {id:4,Name:"headphone",price:199},
+];
+//a
+let foundProducts=products.find(product => product.id===2);
+console.log(foundProducts);
+//b
+
+let foundIndex =products.findIndex(product=>product.price>1000);
+console.log (foundIndex)
 
 
 
