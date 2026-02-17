@@ -10,6 +10,31 @@ console.log(productCategories.length);
 productCategories[1] = "pen";
 // e
 console.log(productCategories);
+
+//Exercise two: Push, Pop, Shift, Unshift, Splice
+let invetory=[10,20,30];
+
+//a
+invetory.push(40);
+console.log(invetory);
+
+//b
+invetory.pop(40);
+console.log(invetory);
+
+//c
+invetory.unshift(0);
+console.log(invetory);
+
+//d
+invetory.shift(0);
+console.log(invetory);
+
+//e
+invetory.splice(1,1,25,35);
+console.log(invetory);
+
+
 // exerise3
 const originalScores = [90, 85, 78];
 // b
@@ -17,7 +42,7 @@ const referenceCopy = originalScores;
 console.log(referenceCopy);
 // c
 referenceCopy[0] = 100;
-console.long("reference Copy :", referenceCopy);
+console.log("Reference Copy:", referenceCopy);
 // d
 const spreadCopy = [...originalScores] // creates a new array with the same elements
 //e
