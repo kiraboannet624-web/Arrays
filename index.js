@@ -118,4 +118,22 @@ console.log("Descending order:", descendingSort);
 
 let reversedDataPoints = [...dataPoints].reverse();
 console.log("Reversed original array:", reversedDataPoints); // Output: [77, 2, 500, 10, 42]
+// Exercise 8: Concatenation, Joining, and Slicing
+
+ let arr1 = ["A", "B"], arr2 = ["C", "D"], 
+
+ sentenceParts = ["Hello", "world", "this", "is", "great"]
+// a
+let combinedArray = arr1.concat(arr2);
+console.log("Concatenated array:", combinedArray); // Output: ["A", "B", "C", "D"]
+
+// b
+let sentence = sentenceParts.join(" ");
+console.log("Joined sentence:", sentence); // Output: "Hello world this is great"
+
+// c
+let middleThree = sentenceParts.slice(1, 4);
+console.log("Middle three elements:", middleThree); // Output: ["world", "this", "is"]
+
+
 
