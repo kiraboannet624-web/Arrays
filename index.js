@@ -161,7 +161,7 @@ const formattedPrices = localCurrencyPrices.map(price =>
 
 console.log(formattedPrices);
 
-// Exercise 11: Filtering Data (filter)
+//  Exercise 11: Filtering Data (filter)
 
 const testScores = [45, 78, 92, 30, 65, 88];
 
@@ -175,8 +175,65 @@ let belowAverage = testScores.filter(score => score < average);
 console.log("Average:", average); // Output: 66.33...
 console.log("Below average scores:", belowAverage); // Output: [45, 30, 65]
 
+// Exercise 12: Aggregating Data (reduce)
 
+// a
+let totalCost = pricesUSD.reduce((sum, price) => sum + price, 0);
+console.log("Total cost:", totalCost); // Output: 35.75
 
+// b
+let maxPrice = pricesUSD.reduce((max, price) => price > max ? price : max);
+console.log("Maximum price:", maxPrice); // Output: 20.00
+
+// c
+let countGreaterThan15 = pricesUSD.reduce((count, price) => price > 15 ? count + 1 : count, 0);
+console.log("Prices greater than $15:", countGreaterThan15); // Output: 1
+
+// Section E: Objects Inside Arrays (Real-World Data Structures)
+//Exercise 13: Sorting Objects
+
+ const users = [{name: "Zoe", age: 30},
+         {name: "Adam", age: 25}, 
+         {name: "Charlie", age: 30}];
+// a
+let sortedByAge = [...users].sort((a, b) => a.age - b.age);
+console.log("Sorted by age:", sortedByAge); // Output: [{name: "Adam", age: 25}, {name: "Zoe", age: 30}, {name: "Charlie", age: 30}]
+
+// b
+let sortedByAgeAndName = [...users].sort((a, b) => {
+  if (a.age !== b.age) {
+    return a.age - b.age;
+  }
+  return a.name.localeCompare(b.name);
+});
+console.log("Sorted by age then name:", sortedByAgeAndName); // Output: [{name: "Adam", age: 25}, {name: "Charlie", age: 30}, {name: "Zoe", age: 30}]
+
+// Exercise 14: Mapping and Filtering Objects
+// a
+let userNames = users.map(user => user.name);
+console.log("User names:", userNames); // Output: ["Zoe", "Adam", "Charlie"]
+
+// b
+let usersOlderThan28 = users.filter(user => user.age > 28);
+console.log("Users older than 28:", usersOlderThan28); // Output: [{name: "Zoe", age: 30}, {name: "Charlie", age: 30}]
+
+// Section F: Multi-Dimensional Arrays (Matrices)
+// Exercise 15: Creating and Accessing a Matrix
+
+// a
+let gameBoard = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
+];
+console.log("Initial game board:", gameBoard);
+
+// b
+gameBoard[1][1] = 1;
+console.log("After setting center to 1:", gameBoard);
+
+// c
+console.log("Top-right corner value:", gameBoard[0][2]); // Output: 0
 
 
 
