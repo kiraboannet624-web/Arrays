@@ -117,3 +117,21 @@ original.reverse();
 
 console.log(original);
 
+// exercise 8
+// Concatenation, Joining, and Slicing
+
+const arr1 = ["A", "B", ];
+const arr2 = ["C", "D",];
+const sentencesParts = ["Hello", "world", "this", "is", "great"];
+
+//a
+const combined = arr1.concat(arr2);
+console.log(combined);
+
+//b
+const joined = sentencesParts.join(" ");
+console.log(joined);
+
+//c
+const sliced = sentencesParts.slice(1,4);
+console.log(sliced);
