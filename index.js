@@ -235,5 +235,171 @@ console.log("After setting center to 1:", gameBoard);
 // c
 console.log("Top-right corner value:", gameBoard[0][2]); // Output: 0
 
+// Exercise 16: Looping Through a Matrix
+
+// a
+
+
+
+
+
+// b
+let sum = 0;
+for (let i = 0; i < gameBoard.length; i++) {
+  for (let j = 0; j < gameBoard[i].length; j++) {
+    sum += gameBoard[i][j];
+  }
+}
+console.log("Sum of all elements:", sum); // Output: 1
+
+// Section G: Mini Projects
+// Project 1: Student Result System
+
+const students = [{name: "A", score: 85}, {name: "B", score: 45}, {name: "C", score: 92}, {name: "D", score: 68}];
+
+// a - Filter Passed
+let passedStudents = students.filter(student => student.score >= 70);
+console.log("Passed students:", passedStudents); // Output: [{name: "A", score: 85}, {name: "C", score: 92}]
+
+// b - Average Score
+let averageScore = students.reduce((sum, student) => sum + student.score, 0) / students.length;
+console.log("Average score:", averageScore); // Output: 72.5
+
+// c - Top Scorer
+let topScorer = students.reduce((highest, student) => student.score > highest.score ? student : highest);
+console.log("Top scorer:", topScorer); // Output: {name: "C", score: 92}
+
+// Project 2: Shopping Cart Management
+
+const cart = [{id: 1, name: "Shirt", price: 20, quantity: 2}, {id: 2, name: "Pants", price: 50, quantity: 1}];
+
+// a - Calculate Total Cost
+let cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+console.log("Total cost:", cartTotal); // Output: 90
+
+// b - Modify Quantity
+let updatedCart = cart.map(item => item.id === 1 ? {...item, quantity: 3} : item);
+console.log("After updating Shirt quantity:", updatedCart); // Output: [{id: 1, name: "Shirt", price: 20, quantity: 3}, {id: 2, name: "Pants", price: 50, quantity: 1}]
+
+// c - Remove Item
+let cartAfterRemoval = cart.filter(item => item.id !== 2);
+console.log("After removing Pants:", cartAfterRemoval); // Output: [{id: 1, name: "Shirt", price: 20, quantity: 2}]
+
+// Section H: Advanced Challenges
+// Challenge 1: Remove Duplicates Without Set
+
+const data = [1, 5, 2, 8, 5, 1, 9, 2];
+
+// Approach 1: Using filter() with indexOf()
+let uniqueData1 = data.filter((value, index) => data.indexOf(value) === index);
+console.log("Unique data (filter + indexOf):", uniqueData1); // Output: [1, 5, 2, 8, 9]
+
+// Approach 2: Using a loop with includes()
+let uniqueData2 = [];
+for (let value of data) {
+  if (!uniqueData2.includes(value)) {
+    uniqueData2.push(value);
+  }
+}
+console.log("Unique data (loop + includes):", uniqueData2); // Output: [1, 5, 2, 8, 9]
+
+// Challenge 2: Recreate reduce Using a Loop
+
+function myReduce(array, callback, initialValue) {
+  let accumulator = initialValue;
+  
+  for (let i = 0; i < array.length; i++) {
+    accumulator = callback(accumulator, array[i], i, array);
+  }
+  
+  return accumulator;
+}
+
+// Test: Calculate the sum of an array
+const testArray = [1, 2, 3, 4, 5];
+let testSum = myReduce(testArray, (sum, current) => sum + current, 0);
+console.log("Sum using myReduce:", testSum); // Output: 15
+
+// Additional test: Calculate product
+let testProduct = myReduce(testArray, (product, current) => product * current, 1);
+console.log("Product using myReduce:", testProduct); // Output: 120
+
+// Challenge 3: Shallow vs. Deep Copy for Nested Objects
+
+const company = [{name: "A", details: {city: "NY"}}, {name: "B", details: {city: "LA"}}];
+
+// a - Shallow Copy with spread operator
+let shallowCopy = [...company];
+shallowCopy[0].details.city = "Boston";
+
+console.log("Original company after shallow copy modification:");
+console.log(company); // Output: Both changed! [{name: "A", details: {city: "Boston"}}, ...]
+console.log("Shallow copy after shallow copy modification:");
+console.log(shallowCopy); // Output: [{name: "A", details: {city: "Boston"}}, ...]
+console.log("Explanation: The spread operator creates a shallow copy - it only copies the top level.");
+console.log("The nested 'details' object is still referenced from the original, so changes affect both.");
+
+// b - Deep Copy using JSON.parse(JSON.stringify())
+const company2 = [{name: "A", details: {city: "NY"}}, {name: "B", details: {city: "LA"}}];
+let deepCopy = JSON.parse(JSON.stringify(company2));
+deepCopy[0].details.city = "Boston";
+
+console.log("\nOriginal company2 after deep copy modification:");
+console.log(company2); // Output: [{name: "A", details: {city: "NY"}}, ...] - UNCHANGED
+console.log("Deep copy after deep copy modification:");
+console.log(deepCopy); // Output: [{name: "A", details: {city: "Boston"}}, ...] - CHANGED
+console.log("Explanation: JSON.parse(JSON.stringify()) creates a true deep copy.");
+console.log("All nested objects are completely independent, so changes only affect the copy.");
+
+// Final Challenge
+// Project: Tic-Tac-Toe Board Analyzer
+
+// a - Board Setup (3x3 initialized with empty strings)
+let ticTacToeBoard = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
+];
+
+// b - Place Moves
+ticTacToeBoard[0][0] = "X"; // top-left
+ticTacToeBoard[1][1] = "O"; // center
+console.log("Board after two moves:", ticTacToeBoard);
+
+// c - Check for Win
+function checkWin(board, playerSymbol) {
+  // Check rows
+  for (let i = 0; i < 3; i++) {
+    if (board[i].every(cell => cell === playerSymbol)) return true;
+  }
+
+  // Check columns
+  for (let j = 0; j < 3; j++) {
+    let colWin = true;
+    for (let i = 0; i < 3; i++) {
+      if (board[i][j] !== playerSymbol) {
+        colWin = false;
+        break;
+      }
+    }
+    if (colWin) return true;
+  }
+
+  // Check main diagonal
+  if (board[0][0] === playerSymbol && board[1][1] === playerSymbol && board[2][2] === playerSymbol) {
+    return true;
+  }
+
+  // Check anti-diagonal
+  if (board[0][2] === playerSymbol && board[1][1] === playerSymbol && board[2][0] === playerSymbol) {
+    return true;
+  }
+
+  return false;
+}
+
+console.log("Does X win?", checkWin(ticTacToeBoard, "X")); // false
+console.log("Does O win?", checkWin(ticTacToeBoard, "O")); // false
+
 
 
