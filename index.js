@@ -85,6 +85,22 @@ console.log(foundProducts);
 
 let foundIndex =products.findIndex(product=>product.price>1000);
 console.log (foundIndex)
+// exercise:6
+// a
+let userAges = [18, 24, 33, 16, 40];
+let hasMinor = userAges.some(age => age < 18);
+
+console.log(hasMinor);
+// b
+let allAdults = userAges.every(age => age >= 18);
+
+console.log(allAdults);
+// c
+let hasMultipleOfFive = userAges.some(age => age % 5 === 0);
+
+console.log(hasMultipleOfFive);
+
+
 
 
 
