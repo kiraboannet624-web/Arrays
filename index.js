@@ -54,3 +54,20 @@ const  spreadCopy = [...originalScores];
 spreadCopy[0] = 50;
 console.log("original Scores:",originalScores); // Output: [100, 85, 78]
 console.log("spread Copy:",spreadCopy);
+// Section B : Searching & Checking
+
+ // Exercise 4: Searching for Elements in an Array
+
+const studentNames = ["Alice", "Bob", "Charlie", "Alice", "David"];
+
+// a
+// The indexOf() method is used to find the first occurrence of 
+// a specified element in an array and returns its index.
+
+console.log(studentNames.indexOf("Alice")); // Output: 0
+// b
+console.log(studentNames.lastIndexOf("Alice")); // Output: 3
+// c
+console.log(studentNames.includes("Charlie")); // Output: true
+// d
+console.log(studentNames.includes("Eve")); // Output: false
