@@ -33,3 +33,24 @@ console.log(invetory); // Output: ["10", "20", "30"]
 invetory.splice(1, 1, 25, 35);
 console.log(invetory); // Output: ["10", "25", "35"]
 
+// Exercise 3: Shallow copying of Arrays  and  the reference trap
+// a
+const originalScores = [90, 85, 78];
+// b 
+// spread operator is used to create a shallow copy of the originalScores array,
+//  which means that the new array will have the same elements as the original array,
+//  but it will be a different array in memory.
+//  This allows us to modify the new array without affecting the original array.
+
+const referenceCopy = originalScores;
+console.log(referenceCopy); // Output: [90, 85, 78]
+// c
+referenceCopy[0] = 100;
+console.log( "original Scores:",originalScores); // Output: [100, 85, 78]
+console.log("reference Copy:",referenceCopy); // Output: [100, 85, 78]
+// d
+const  spreadCopy = [...originalScores];
+// e
+spreadCopy[0] = 50;
+console.log("original Scores:",originalScores); // Output: [100, 85, 78]
+console.log("spread Copy:",spreadCopy);
