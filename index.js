@@ -134,6 +134,18 @@ console.log("Joined sentence:", sentence); // Output: "Hello world this is great
 // c
 let middleThree = sentenceParts.slice(1, 4);
 console.log("Middle three elements:", middleThree); // Output: ["world", "this", "is"]
+// Exercise 9: Flattening Arrays (flat)
+
+const nestedList = [1, [2, 3], [4, [5, 6]], 7];
+
+// a
+let flattenedOnce = nestedList.flat();
+console.log("Flattened once:", flattenedOnce); // Output: [1, 2, 3, 4, [5, 6], 7]
+
+// b
+let completelyFlattened = nestedList.flat(Infinity);
+console.log("Completely flattened:", completelyFlattened); // Output: [1, 2, 3, 4, 5, 6, 7]
+
 
 
 
