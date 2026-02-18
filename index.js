@@ -161,6 +161,19 @@ const formattedPrices = localCurrencyPrices.map(price =>
 
 console.log(formattedPrices);
 
+// Exercise 11: Filtering Data (filter)
+
+const testScores = [45, 78, 92, 30, 65, 88];
+
+// a
+let passingScores = testScores.filter(score => score >= 70);
+console.log("Passing scores:", passingScores); // Output: [78, 92, 88]
+
+// b
+let average = testScores.reduce((sum, score) => sum + score, 0) / testScores.length;
+let belowAverage = testScores.filter(score => score < average);
+console.log("Average:", average); // Output: 66.33...
+console.log("Below average scores:", belowAverage); // Output: [45, 30, 65]
 
 
 
